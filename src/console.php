@@ -49,8 +49,13 @@ foreach ($modules as $module) {
     // Our manifests declare the names in lowercase, but the module directories start with an uppercase letter.
     $cap = ucfirst($module);
 
+    $commandDir = Path::join(PATH_ROOT, 'modules', $cap, 'Commands');
+    if (!$filesystem->exists($commandDir)) {
+        continue;
+    }
+
     $finder = new Finder();
-    $finder->files()->in(Path::join(PATH_ROOT, 'modules', $cap, 'Commands'))->name('*.php');
+    $finder->files()->in($commandDir)->name('*.php');
 
     foreach ($finder as $file) {
         $command = $file->getFilenameWithoutExtension();

@@ -88,7 +88,7 @@ class RabbitMQService
         );
 
         $this->channel = $this->connection->channel();
-        $this->channel->exchange_declare($this->exchange, 'direct', false, true, false);
+        $this->channel->exchange_declare($this->exchange, 'topic', false, true, false);
 
         foreach ($this->queues as $routingKey => $queueName) {
             $this->channel->queue_declare($queueName, false, true, false, false);

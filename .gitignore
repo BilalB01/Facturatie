@@ -20,3 +20,10 @@ src/data/uploads/
 
 # OS files
 Thumbs.db
+
+
+# npm files
+node_modules/
+src/themes/admin_default
+src/themes/admin_default/build/images/
+src/themes/admin_default/package.json
