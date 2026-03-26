@@ -72,8 +72,8 @@ class ConsumeKassaCommand extends Command
                         }
 
                         if (!$companyId) {
-                            // Als hij geen bedrijf heeft, krijgt hij een eigen "particuliere" factuur
-                            $companyId = 'USER_' . $userClient->id;
+                            $output->writeln(" [!] Info: Gebruiker {$userId} is een particulier zonder bedrijf. Consumpties worden ter plaatse verrekend, geen factuur vereist.");
+                            continue;
                         }
 
                         // Leg de associatie tussen gebruiker en bedrijfsfactuur vast indien nog niet gebeurd
